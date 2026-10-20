@@ -10,6 +10,7 @@ import {
   Wifi,
   Zap,
 } from "lucide-react";
+
 const cockpitNight = "/images/cockpit-night.jpg";
 
 const benefits = [
