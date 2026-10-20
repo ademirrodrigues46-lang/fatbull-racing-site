@@ -1,20 +1,43 @@
-node_modules
-dist
-dist-app
-.DS_Store
-*.log
+# Dependências
+node_modules/
+.pnp/
+.pnp.js
+
+# Build
+dist/
+dist-app/
+build/
+
+# Cache
+.cache/
+.npm/
+.eslintcache
+*.tsbuildinfo
+
+# Ambiente / secrets
 .env
-.env.*
-!.env.example
-.vscode
-.idea
-coverage
-playwright-report
-test-results
-shots
-*.local
-.cache
-tmp
+.env.local
+.env.production
+*.pem
+*.key
+
+# Sistema
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+npm-debug.log*
+
+# Testes / QA temporários
+shots/
 qa*.mjs
-render-svg.mjs
-public/images/fat-bull-racing.dataurl.txt
+screenshot*.png
+*-check.png

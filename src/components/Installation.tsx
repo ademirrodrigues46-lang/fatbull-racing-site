@@ -91,11 +91,8 @@ export function Installation({
               <span className="text-[#7f8c81]">Em menos de um minuto.</span>
             </h2>
             <p className="mt-4 max-w-md text-[12.5px] leading-[1.8] text-muted">
-              Hoje o produto que você testa no PC é este site. Clone o GitHub, rode
-              <code className="mx-1 rounded bg-white/[0.06] px-1 py-0.5 font-mono text-[10px] text-[#dce5d7]">
-                npm run dev
-              </code>
-              e use o Estúdio. O instalador Windows nativo entra no próximo ciclo.
+              Instalação silenciosa, configuração guiada e nenhum arquivo do jogo modificado. O
+              RacePulse conversa com o iRacing apenas pela telemetria oficial.
             </p>
 
             <div className="mt-8">

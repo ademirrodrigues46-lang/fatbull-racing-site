@@ -1,0 +1,10 @@
+import { chromium } from 'playwright';
+import fs from 'fs';
+const b = await chromium.launch();
+const p = await b.newPage({ viewport: { width: 800, height: 540 } });
+const svg = fs.readFileSync('public/images/fat-bull-racing.svg', 'utf8');
+await p.setContent(`<!DOCTYPE html><html><body style="margin:0;background:transparent;display:flex;align-items:center;justify-content:center;height:100vh;">${svg}</body></html>`);
+const el = await p.locator('svg');
+await el.screenshot({ path: 'public/images/fat-bull-racing.png', omitBackground: true });
+await b.close();
+console.log('PNG rendered successfully');

@@ -14,7 +14,6 @@ import {
   Rocket,
   Send,
   Search,
-  GitBranch,
   Settings2,
   ShieldAlert,
   Terminal,
@@ -31,8 +30,7 @@ type TopicId =
   | "streaming"
   | "problemas"
   | "atualizacoes"
-  | "publicar"
-  | "github";
+  | "publicar";
 
 type DocSection = {
   title: string;
@@ -366,60 +364,6 @@ const topics: Topic[] = [
           },
         ],
         tip: "Checklist antes de subir: build + testes visuais, notas da versão, SHA-256 publicado, instalador assinado e cache do edge limpo.",
-      },
-    ],
-  },
-  {
-    id: "github",
-    label: "GitHub e o PC",
-    icon: GitBranch,
-    kicker: "Comece aqui",
-    title: "Subir no GitHub, publicar e testar no Windows.",
-    intro:
-      "Este repositório é o site + Estúdio. Ainda não existe um .exe sobre o iRacing. Você já pode versionar no GitHub, colocar a página no ar e rodar localmente para decidir o que melhorar.",
-    sections: [
-      {
-        title: "No PC, uma vez",
-        steps: [
-          {
-            title: "Instale Git, Node.js LTS e VS Code",
-            description:
-              "git-scm.com, nodejs.org (marque Add to PATH) e code.visualstudio.com. Confira com git --version, node -v e npm -v no terminal.",
-          },
-          {
-            title: "Abra a pasta do projeto",
-            description:
-              "Se baixou o ZIP, extraia. Se já tem Git: git clone https://github.com/SEU_USUARIO/fatbull-racing-overlay.git",
-          },
-        ],
-        code: "npm install\nnpm run dev          # http://localhost:5173",
-      },
-      {
-        title: "Mandar para o GitHub",
-        steps: [
-          {
-            title: "Crie o repositório vazio",
-            description:
-              "github.com/new → nome fatbull-racing-overlay → sem README (este projeto já tem).",
-          },
-          {
-            title: "Primeiro push",
-            description:
-              "Na pasta do projeto, inicialize o Git se ainda não existir e envie a main.",
-          },
-        ],
-        code: "git init -b main\ngit add .\ngit commit -m \"feat: primeira versão FatBull Racing Overlay\"\ngit remote add origin https://github.com/SEU_USUARIO/fatbull-racing-overlay.git\ngit push -u origin main",
-      },
-      {
-        title: "Site no ar",
-        body:
-          "O caminho mais simples é Netlify ou Vercel ligados ao GitHub: build npm run build, pasta dist. Cada push na main republica. GitHub Pages também funciona (Actions → pages.yml; Settings → Pages → GitHub Actions).",
-        tip: "Guia completo passo a passo: docs/COMECE-AQUI.md no repositório.",
-      },
-      {
-        title: "Ciclo de alteração",
-        code: "git switch -c feat/o-que-vai-mudar\nnpm run dev\nnpm run build\ngit add . && git commit -m \"feat: descreva\" && git push",
-        tip: "Não há instalador Windows neste repo. Use o Estúdio no navegador, lado a lado com o iRacing em janela sem borda, para julgar tamanho, cor e informação.",
       },
     ],
   },

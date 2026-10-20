@@ -10,7 +10,7 @@ import {
   SlidersHorizontal,
 } from "lucide-react";
 import { cn } from "@/utils/cn";
-const cockpitNight = "/images/cockpit-night.jpg";
+import cockpitNight from "@/assets/cockpit-night.jpg";
 import { PulseMark } from "./Brand";
 
 export type WidgetKey = "standings" | "relative" | "fuel" | "delta" | "radar" | "map";
