@@ -1,0 +1,206 @@
+<svg viewBox="0 0 400 270" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Filtro de sombra e relevo -->
+    <filter id="fb-shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="6" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
+    
+    <linearGradient id="bull-body" x1="20%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%" stop-color="#FF2E3B"/>
+      <stop offset="45%" stop-color="#E51124"/>
+      <stop offset="100%" stop-color="#99000D"/>
+    </linearGradient>
+
+    <linearGradient id="bull-highlight" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FF7580" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#E51124" stop-opacity="0"/>
+    </linearGradient>
+
+    <linearGradient id="gold-horn" x1="0%" y1="0%" x2="100%" y2="80%">
+      <stop offset="0%" stop-color="#FFF275"/>
+      <stop offset="40%" stop-color="#FFB800"/>
+      <stop offset="100%" stop-color="#C78000"/>
+    </linearGradient>
+
+    <linearGradient id="banner-red" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#E51124"/>
+      <stop offset="50%" stop-color="#B80716"/>
+      <stop offset="100%" stop-color="#E51124"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Círculo de fundo / Distintivo -->
+  <g id="badge-background">
+    <!-- Círculo externo azul marinho com anéis vermelho e azul -->
+    <ellipse cx="215" cy="115" rx="112" ry="102" fill="#0C1428" stroke="#E51124" stroke-width="7"/>
+    <ellipse cx="215" cy="115" rx="98" ry="89" fill="#141E38" stroke="#1D2B4E" stroke-width="3"/>
+    
+    <!-- Linhas de velocidade / rastro atrás do touro -->
+    <path d="M 60,118 L 138,105 L 132,118 L 52,130 Z" fill="#1C2D54"/>
+    <path d="M 45,138 L 125,124 L 118,136 L 38,150 Z" fill="#E51124" opacity="0.85"/>
+    <path d="M 70,154 L 135,142 L 128,152 L 65,164 Z" fill="#FFB800" opacity="0.8"/>
+    <path d="M 55,168 L 115,158 L 110,166 L 50,175 Z" fill="#1C2D54"/>
+  </g>
+
+  <!-- Nuvem de poeira sob as patas traseiras -->
+  <g id="dust-clouds" fill="#DFCBB5" opacity="0.85">
+    <circle cx="95" cy="158" r="8"/>
+    <circle cx="85" cy="162" r="6"/>
+    <circle cx="92" cy="167" r="7"/>
+    <circle cx="102" cy="164" r="5"/>
+    <circle cx="80" cy="168" r="4"/>
+  </g>
+
+  <!-- Touro Gordo em arrancada (FAT BULL) -->
+  <g id="the-fat-bull" filter="url(#fb-shadow)">
+    <!-- Rabo com tufo amarelo -->
+    <path d="M 125,122 C 100,105 102,72 125,66 C 132,64 138,72 132,78 C 118,88 118,110 135,124 Z" fill="#B80716"/>
+    <!-- Tufo do rabo dourado -->
+    <path d="M 125,66 C 115,62 95,68 88,78 C 96,78 104,85 106,90 C 112,85 120,80 126,80 C 132,75 130,68 125,66 Z" fill="url(#gold-horn)" stroke="#945F00" stroke-width="1"/>
+
+    <!-- Pata traseira esquerda (fundo) -->
+    <path d="M 148,138 Q 130,146 112,154 Q 106,160 115,164 Q 128,162 144,148 Z" fill="#80040E"/>
+    <polygon points="108,158 116,155 120,163 112,165" fill="#111827"/>
+
+    <!-- Pata dianteira esquerda (fundo) -->
+    <path d="M 285,130 Q 308,142 320,146 Q 326,150 324,155 Q 314,157 298,145 Z" fill="#80040E"/>
+    <polygon points="318,148 326,152 322,157 314,155" fill="#111827"/>
+
+    <!-- Corpo musculoso e gordinho do touro -->
+    <!-- Contorno preto robusto estilo sticker esportivo -->
+    <path d="M 135,125 
+             C 142,95 180,62 238,55 
+             C 278,50 305,68 318,84 
+             C 328,98 324,115 316,124 
+             C 325,120 338,124 336,134 
+             C 334,142 322,148 305,146
+             L 282,158 C 274,166 260,166 252,156 L 246,145
+             C 215,158 178,160 148,145
+             L 132,156 C 122,162 110,158 108,148 L 118,136
+             C 122,130 128,126 135,125 Z" 
+          fill="#0C1428" stroke="#0C1428" stroke-width="8" stroke-linejoin="round"/>
+
+    <!-- Preenchimento vermelho degradê -->
+    <path d="M 135,125 
+             C 142,95 180,62 238,55 
+             C 278,50 305,68 318,84 
+             C 328,98 324,115 316,124 
+             C 325,120 338,124 336,134 
+             C 334,142 322,148 305,146
+             L 282,158 C 274,166 260,166 252,156 L 246,145
+             C 215,158 178,160 148,145
+             L 132,156 C 122,162 110,158 108,148 L 118,136
+             C 122,130 128,126 135,125 Z" 
+          fill="url(#bull-body)"/>
+
+    <!-- Destaque de luz nas costas curvadas -->
+    <path d="M 160,105 C 175,76 215,62 262,60 C 240,68 185,82 160,105 Z" fill="url(#bull-highlight)"/>
+
+    <!-- Rugas e músculos de força (linhas pretas com estilo dinâmico) -->
+    <path d="M 235,70 Q 248,88 245,108" stroke="#80040E" stroke-width="4" stroke-linecap="round" fill="none"/>
+    <path d="M 220,78 Q 230,95 224,115" stroke="#80040E" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <path d="M 195,90 Q 208,110 200,126" stroke="#80040E" stroke-width="4" stroke-linecap="round" fill="none"/>
+    <path d="M 170,105 Q 182,120 178,134" stroke="#80040E" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+
+    <!-- Pata traseira direita (frente) -->
+    <g>
+      <path d="M 152,126 Q 136,138 122,148 Q 115,154 122,158 Q 134,158 152,142 Z" fill="#E51124" stroke="#0C1428" stroke-width="3"/>
+      <!-- Casco -->
+      <polygon points="116,151 126,147 128,157 118,159" fill="#1F2937" stroke="#0C1428" stroke-width="2"/>
+    </g>
+
+    <!-- Pata dianteira direita (frente) -->
+    <g>
+      <path d="M 270,132 Q 285,146 295,152 Q 302,156 300,161 Q 290,164 274,148 Z" fill="#E51124" stroke="#0C1428" stroke-width="3"/>
+      <!-- Casco -->
+      <polygon points="293,153 303,157 298,163 289,160" fill="#1F2937" stroke="#0C1428" stroke-width="2"/>
+    </g>
+
+    <!-- Cabeça e expressão enfurecida/veloz -->
+    <!-- Chifre esquerdo (trás) -->
+    <path d="M 302,74 C 308,55 316,42 332,46 C 330,58 316,68 308,76 Z" fill="url(#gold-horn)" stroke="#0C1428" stroke-width="3"/>
+    
+    <!-- Orelha esquerda -->
+    <path d="M 292,82 Q 278,84 274,78 Q 284,72 294,76 Z" fill="#B80716" stroke="#0C1428" stroke-width="2"/>
+
+    <!-- Chifre direito frontal (curvado dourado imponente) -->
+    <path d="M 274,76 
+             C 275,54 286,40 306,42 
+             C 305,55 292,66 280,78 Z" 
+          fill="url(#gold-horn)" stroke="#0C1428" stroke-width="3.5" stroke-linejoin="round"/>
+    <!-- Topete dourado entre os chifres -->
+    <path d="M 284,65 Q 295,60 304,66 Q 298,72 284,65 Z" fill="#FFB800"/>
+
+    <!-- Olho raivoso e focado na corrida -->
+    <polygon points="286,88 302,86 298,92" fill="#FFFFFF" stroke="#0C1428" stroke-width="2.5"/>
+    <circle cx="295" cy="89" r="2.5" fill="#0C1428"/>
+    <path d="M 283,85 L 305,84" stroke="#0C1428" stroke-width="3" stroke-linecap="round"/>
+
+    <!-- Focinho largo vermelho escuro com argola de ouro -->
+    <path d="M 306,94 C 322,96 332,106 328,120 C 322,128 308,128 300,122 Z" fill="#80040E" stroke="#0C1428" stroke-width="3"/>
+    
+    <!-- Argola de ouro no nariz (Bull Ring) -->
+    <ellipse cx="324" cy="122" rx="7" ry="9" fill="none" stroke="url(#gold-horn)" stroke-width="4.5"/>
+    <ellipse cx="324" cy="122" rx="7" ry="9" fill="none" stroke="#664100" stroke-width="1.5"/>
+
+    <!-- Fumaça de vapor saindo do nariz (snort / nitro) -->
+    <!-- Nuvem de vapor esquerda -->
+    <g fill="#FFFFFF" stroke="#0C1428" stroke-width="2.5" stroke-linejoin="round">
+      <path d="M 300,118 
+               C 292,112 280,116 280,124 
+               C 278,132 288,136 294,134 
+               C 298,136 308,134 308,126 Z"/>
+      
+      <!-- Jato de fumaça frontal -->
+      <path d="M 334,124 
+               C 342,120 354,120 355,128 
+               C 356,134 348,138 344,136 
+               C 342,142 334,140 332,134 Z"/>
+    </g>
+  </g>
+
+  <!-- Banner estilizado inferior "FAT BULL RACING" -->
+  <g id="racing-banner" filter="url(#fb-shadow)">
+    <!-- Forma chanfrada exterior azul escuro com borda vermelha -->
+    <polygon points="68,188 340,144 354,178 335,182 342,204 235,228 178,236 78,245 62,208 84,204" 
+             fill="#0C1428" stroke="#E51124" stroke-width="4" stroke-linejoin="round"/>
+    
+    <!-- Faixa interna com recorte esportivo -->
+    <polygon points="76,192 332,151 342,176 325,180 332,198 232,221 82,236 70,206 88,202" 
+             fill="#141E38"/>
+
+    <!-- Texto "FAT" (vermelho vivo itálico esportivo) -->
+    <g font-family="'Sora', 'Impact', 'Arial Black', sans-serif" font-weight="900" font-style="italic">
+      <!-- F A T -->
+      <text x="82" y="222" font-size="44" fill="#E51124" stroke="#0C1428" stroke-width="4.5" paint-order="stroke fill" letter-spacing="-1">
+        FAT
+      </text>
+      <!-- Realce superior branco em FAT -->
+      <text x="82" y="222" font-size="44" fill="url(#bull-highlight)" opacity="0.3" letter-spacing="-1">
+        FAT
+      </text>
+
+      <!-- B U L L (branco com chanfro cinza) -->
+      <text x="180" y="206" font-size="44" fill="#F4F7FB" stroke="#0C1428" stroke-width="5" paint-order="stroke fill" letter-spacing="-1">
+        BULL
+      </text>
+      <text x="180" y="206" font-size="44" fill="#E2E8F0" opacity="0.9" letter-spacing="-1">
+        BULL
+      </text>
+    </g>
+
+    <!-- Linha e texto "RACING" com traços de velocidade -->
+    <g font-family="'JetBrains Mono', 'Arial Black', sans-serif" font-weight="900" font-style="italic">
+      <!-- Traços de velocidade duplos antes e depois de RACING -->
+      <line x1="126" y1="233" x2="154" y2="231" stroke="#E51124" stroke-width="3" stroke-linecap="round"/>
+      <line x1="134" y1="238" x2="158" y2="236" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+
+      <text x="168" y="238" font-size="16" fill="#FFFFFF" stroke="#0C1428" stroke-width="3" paint-order="stroke fill" letter-spacing="4">
+        RACING
+      </text>
+
+      <line x1="264" y1="223" x2="288" y2="221" stroke="#E51124" stroke-width="3" stroke-linecap="round"/>
+      <line x1="260" y1="228" x2="284" y2="226" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+    </g>
+  </g>
+</svg>
