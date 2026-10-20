@@ -10,7 +10,7 @@ import {
   Wifi,
   Zap,
 } from "lucide-react";
-import cockpitNight from "@/assets/cockpit-night.jpg";
+const cockpitNight = "/images/cockpit-night.jpg";
 
 const benefits = [
   ["Browser Sources nativos", "Cada widget tem seu próprio link local."],
