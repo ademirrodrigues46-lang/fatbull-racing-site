@@ -10,7 +10,8 @@ import {
   SlidersHorizontal,
 } from "lucide-react";
 import { cn } from "@/utils/cn";
-import cockpitNight from "@/assets/cockpit-night.jpg";
+// A imagem está em public/images/ e é acessada diretamente pela URL
+const cockpitNight = "/images/cockpit-night.jpg";
 import { PulseMark } from "./Brand";
 
 export type WidgetKey = "standings" | "relative" | "fuel" | "delta" | "radar" | "map";
