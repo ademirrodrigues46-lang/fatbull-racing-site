@@ -1,84 +1,69 @@
-# RacePulse Overlay — site, app e distribuição
+# FATBULL Racing — site do FATBULL OVERLAY
 
-Kit de produto do **RacePulse Overlay**, um overlay nativo de telemetria para iRacing
-(standings, relativos, combustível, mapa de pista, radar e delta) com janela transparente
-sobre o simulador e Browser Sources para OBS.
+Reformulação do projeto original `fatbull-racing-site-main.zip`, mantendo React, TypeScript, Vite, a organização por componentes, a imagem de cockpit e **o arquivo original da logo, sem alterações**. A paleta continua vermelho, marinho e dourado.
 
-Este repositório contém a **camada pública** do produto — o que o piloto vê antes e depois
-de instalar:
+## Executar e conferir
 
-| Camada | Onde vive | O que é |
-| --- | --- | --- |
-| Site institucional + Estúdio | este repositório | landing page, prévia interativa do overlay, documentação embutida e central de download |
-| App Windows | repositório `racepulse-app` | janela transparente (Electron + SDK de telemetria do iRacing), instalador NSIS e auto-update |
+Requer Node.js 24 e npm.
 
-O Estúdio (`#estudio`) e a documentação embutida (`Docs`) rodam no navegador com os mesmos
-dados usados pelo app, o que mantém marketing, produto e suporte alinhados.
-
-## Rodar local
-
-```bash
-npm install
-npm run dev          # http://localhost:5173
+```sh
+npm ci
+npm test
+npm run build
+npm run preview
 ```
 
-## Rotas principais
+Para desenvolver: `npm run dev`. Para os testes de interface: `npm run test:browser`, após o build. Eles usam Google Chrome instalado; alternativamente instale o Chromium do Playwright e execute com `BROWSER_CHANNEL=chromium` no ambiente. O teste inicia e encerra seu próprio servidor local e não baixa instaladores reais.
 
-```bash
-npm run build        # gera dist/index.html (arquivo único, com CSS/JS inline)
-npm run preview      # serve o build localmente
-npm run release:site # build + SHA-256 + dist/release.json + próximos comandos
+## O que foi implementado
+
+- Seção `#overlays`, galeria com capturas reais da interface e indicação explícita de dados simulados.
+- Recursos documentados no aplicativo local, multimonitor, atalhos, instalação e perguntas frequentes.
+- Download da release estável indicada como **Latest pelo GitHub**, consultado novamente no clique.
+- Versão, data, tamanho e changelog fornecidos pela API, sem versões promocionais fixas.
+- Mensagens para ausência de configuração, ausência de release estável, repositório indisponível, limite de consultas, falhas de rede, instalador ausente e seleção ambígua.
+- Menu responsivo, navegação por teclado, foco visível, link para pular conteúdo e respeito à preferência por movimento reduzido.
+
+As antigas telas fictícias, depoimentos, métricas de desempenho, roadmap e versões de demonstração foram retirados. O site não promete recursos sem base na documentação local.
+
+## Configuração dos downloads
+
+Edite `src/data/download.ts` ou copie `.env.example` para `.env.local`. Os valores padrão foram encontrados em `build.publish` do projeto Electron local e conferidos na API pública:
+
+```dotenv
+VITE_GITHUB_OWNER=ademirrodrigues46-lang
+VITE_GITHUB_REPO=fatbull-overlay-releases
+VITE_GITHUB_ASSET_PREFIX=FATBULL-Overlay-
+VITE_GITHUB_ASSET_SUFFIX=-Windows-x64.exe
 ```
+
+Esses valores são públicos. **Não coloque um token GitHub em uma variável VITE_.** O site usa a API pública sem autenticação. Um valor vazio de owner, repo, prefixo ou sufixo desabilita o download com mensagem clara.
+
+O código usa `GET /repos/{owner}/{repo}/releases/latest`, sem ordenar versões como strings e sem montar um endereço de EXE. O botão só aceita exatamente um asset enviado, de tamanho positivo, cujo nome tenha o prefixo e sufixo configurados e termine em `.exe`. O endereço vem de `browser_download_url`, validado como HTTPS no repositório esperado. Se a release mais recente ainda não tiver instalador, o site **não baixa uma versão anterior silenciosamente**.
+
+A consulta ocorre ao abrir a página, a cada cinco minutos enquanto ela estiver visível, ao usar “Verificar novamente” e novamente ao clicar em baixar. O GitHub decide qual é a release Latest; isso não é uma busca por maior número de versão. Rascunhos e pré-lançamentos são rejeitados. O histórico mostra até seis releases estáveis entre as vinte publicações consultadas, com link para o histórico completo.
+
+As notas são renderizadas como texto, preservando quebras de linha e sem executar HTML. Marcações Markdown das notas continuam visíveis; a release original oferece a apresentação completa.
+
+## Publicação
+
+Veja [docs/DEPLOY.md](docs/DEPLOY.md). A configuração Vercel está em `vercel.json`.
+
+Não é necessário publicar novamente o site a cada versão do aplicativo. Basta publicar a release no repositório configurado, anexar o instalador compatível e defini-la como Latest. Mudanças nas variáveis de ambiente exigem um novo deploy do site.
+
+## Imagens e conteúdo
+
+Veja [docs/ASSETS.md](docs/ASSETS.md) para origem, limitações e substituição das capturas. As imagens mostram a interface real em modo de prévia; não são prova de uma sessão ao vivo ou de validação no simulador.
 
 ## Estrutura
 
-```
-src/
-  App.tsx                    composição das seções + modais + toast
-  index.css                  tokens de tema, tipografia, CSS do preview do overlay
-  components/
-    Header.tsx               navegação fixa e menu mobile
-    Hero.tsx                 abertura com o overlay ao vivo
-    Features.tsx             métricas + biblioteca de widgets
-    OverlayPreview.tsx       motor visual do overlay (React + SVG), reutilizado no Hero e no Estúdio
-    Studio.tsx               editor interativo: widgets, cor, escala, opacidade, presets
-    Installation.tsx         simulador do assistente de instalação
-    Streaming.tsx            preview de cena do OBS com Browser Sources
-    Release.tsx              trilha de publicação, canais, changelog e checklist
-    Identity.tsx             editor de marca: logo, paleta extraída, tokens ao vivo
-  lib/
-    brand.tsx                BrandProvider: aplica tokens em :root e persiste em localStorage
-    color.ts                 mix/contraste/derive de paleta + extração de cores do logo (canvas)
-  data/brand.ts              packs de cor, símbolos de logo, marca padrão
-    Testimonials.tsx         feedback de pilotos-teste
-    DownloadCTA.tsx          chamada final de download
-    DownloadModal.tsx        central de download (versão, tamanho, SHA-256, novidades)
-    DocsModal.tsx            documentação completa com busca e navegação por tópicos
-  data/releases.ts           versões, canais, roadmap, comandos de deploy  ← edite aqui
-scripts/release.mjs          geração de build publicável + checksum
-docs/DEPLOY.md               publicação e atualização (site e app)
-CHANGELOG.md                 histórico de versões
-.github/workflows/deploy.yml CI que builda e publica a cada push na main
-```
+- `src/components/`: seções do site original reformuladas.
+- `src/lib/releases.ts`: validação da API, seleção do instalador e estados.
+- `src/lib/useReleases.ts`: consulta, atualização periódica e revalidação no clique.
+- `src/data/download.ts`: configuração pública.
+- `public/images/`: identidade e capturas.
+- `tests/`: testes da integração e do navegador.
+- `docs/`: publicação, procedência dos arquivos e verificação.
 
-## Como atualizar o conteúdo
+A versão de `package.json` é a versão interna do site herdada do ZIP; não é usada como versão do aplicativo.
 
-A regra é uma só: **conteúdo é dado, não componente.**
-
-- Texto de versões, changelog, canais, roadmap e comandos → `src/data/releases.ts`.
-- Widgets disponíveis e rótulos do Estúdio → `widgetLabels` em `src/components/OverlayPreview.tsx`.
-- Artigos da documentação → array `topics` em `src/components/DocsModal.tsx`.
-- Versão, tamanho e hash exibidos na central de download → `src/components/DownloadModal.tsx`
-  (e `package.json` como fonte de verdade para o script de release).
-
-Depois de editar: `npm run dev` para validar, `npm run release:site` para gerar o artefato.
-
-## Publicar
-
-Veja [`docs/DEPLOY.md`](docs/DEPLOY.md). Resumo: commit → push → o workflow builda e publica no
-edge. Cada PR ganha URL de preview; o rollback é a implantação anterior no painel.
-
-## Nota legal
-
-Projeto independente, não afiliado à iRacing.com Motorsport Simulations, LLC.
-Todas as leituras de telemetria mostradas na interface são simuladas.

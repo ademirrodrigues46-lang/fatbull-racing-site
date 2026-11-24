@@ -41,3 +41,5 @@ shots/
 qa*.mjs
 screenshot*.png
 *-check.png
+
+qa/

@@ -1,42 +1,16 @@
-# Changelog
+# Alterações no site
 
-Formato seguindo Keep a Changelog; versões seguem SemVer.
-O texto abaixo é o mesmo exibido em `src/data/releases.ts` e na central de download.
+## Reformulação FATBULL
 
-## [2.4.1] — 2026-02-18 (stable)
+- Preservada a logo PNG original e a identidade vermelho, marinho e dourado.
+- Reformulados cabeçalho, hero, recursos, instalação, downloads, atualizações e rodapé na base React/Vite existente.
+- Acrescentadas as seções #overlays e multimonitor, com imagens reais da interface e indicação de dados simulados.
+- Substituídas versões e links fictícios por integração pública com GitHub Releases.
+- Implementada revalidação da versão no clique de download e seleção explícita de instalador Windows x64.
+- Adicionados estados de configuração ausente, nenhuma release estável, repositório inacessível, erro, rate limit e assets ausentes/ambíguos.
+- Removidos componentes demonstrativos não utilizados, depoimentos e promessas sem evidência.
+- Atualizada a publicação para Vercel; o workflow GitHub valida e gera artefato, sem publicar automaticamente em Cloudflare.
+- Adicionados testes da integração, verificação de tipos e testes de interface.
 
-### Added
-- Standings V2 com intervalo por classe e destaque de volta mais rápida.
-- Radar de proximidade com detecção de overlap em pelotões densos.
-- Site: Estúdio de layout interativo (widgets, cor de destaque, escala, opacidade).
-- Site: seção **Publicação & atualizações** com canais, changelog filtrável e checklist.
+Este changelog descreve **o site**. As versões do aplicativo vêm exclusivamente do GitHub.
 
-### Changed
-- Inicialização do overlay 34% mais rápida (cache de mapas de pista em disco).
-- Documentação embutida reorganizada em tópicos com busca.
-
-## [2.4.0] — 2026-02-02 (stable)
-
-### Added
-- Editor visual com snap de 8 px e prévia instantânea.
-- Perfis vinculados a carro, pista ou tipo de sessão.
-- Browser Source por camada para OBS (`http://127.0.0.1:8472/overlay/<widget>`).
-
-### Fixed
-- Overlay oculto ao alternar entre monitores com resoluções diferentes.
-- Cálculo de combustível ignorando volta de instalação na pit lane.
-
-## [2.5.0-beta.3] — 2026-02-20 (beta)
-
-### Added
-- Widget de pneus: temperatura por roda e degradação estimada.
-- Alertas de economia de combustível com alvo configurável.
-- Tema de alto contraste para transmissão noturna.
-
-## [2.6.0-canary.7] — 2026-02-21 (canary)
-
-### Added
-- Prévia do modo espectador com dados do teammate.
-- Experimento de janela em fullscreen exclusivo.
-
-> Canary é compilado automaticamente a cada commit. Não instale em máquina de corrida.

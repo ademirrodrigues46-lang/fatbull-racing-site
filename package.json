@@ -1,13 +1,15 @@
 {
-  "name": "react-vite-tailwind",
+  "name": "fatbull-racing-site",
   "private": true,
   "version": "2.4.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "tsc --noEmit && vite build",
     "preview": "vite preview",
-    "release:site": "node scripts/release.mjs"
+    "release:site": "node scripts/release.mjs",
+    "test": "node --test tests/releases.test.mjs",
+    "test:browser": "node tests/browser.mjs"
   },
   "dependencies": {
     "clsx": "2.1.1",
@@ -27,5 +29,8 @@
     "typescript": "5.9.3",
     "vite": "7.3.2",
     "vite-plugin-singlefile": "2.3.0"
+  },
+  "engines": {
+    "node": ">=24.0.0"
   }
 }
