@@ -1,31 +1,27 @@
-# Identidade e capturas
+# Identidade e imagens
 
-## Logo original preservada
+Esta atualização usa `fatbull-racing-site-main(1).zip` enviado pelo usuário, com os dois arquivos de logo já corrigidos.
 
-`public/images/fat-bull-racing-logo.png` veio do ZIP original e foi mantida byte a byte, sem recorte, redesenho, recoloração ou remoção de fundo. É utilizada no cabeçalho, rodapé e favicon.
+## Logos preservadas
 
-Os outros arquivos originais de identidade continuam em `public/images`, mas não substituem a logo PNG na página. O quadrículado que aparece no PNG pertence ao arquivo fornecido; ele não foi alterado.
+- `public/images/fat-bull-racing-logo.png`: imagem original corrigida, sem recorte, recoloração ou redesenho. Usada no cabeçalho, rodapé e favicon.
+- `public/images/fat-bull-racing.svg`: SVG com a imagem PNG incorporada, mantido exatamente como recebido.
 
-A paleta deriva do branding original: vermelho #E51124, marinho #080E1B, dourado #FFB800 e branco #F4F7FC.
+Os dois arquivos foram comparados byte a byte com os do ZIP atualizado e são idênticos.
 
-## Imagem de cockpit
+SHA-256 do PNG: `24928916e11fb9d51e6da4c80ed73fbe0c13a42e87df4639da6015458d30ff91`
 
-`public/images/cockpit-night.jpg` veio do ZIP original. O hero a identifica como imagem de cockpit do projeto. Ela é ambientação, não uma demonstração do FATBULL sobre o jogo.
+SHA-256 do SVG: `18f113f130434d52466449c620c2929b670ec5fad5bfcacd6cc7fdbfac8a040e`
 
-## Capturas reais da interface
+## Capturas do aplicativo
 
-- `overlay-panel.png`: capturada do arquivo local `fatbull-overlay/web/index.html`, em 1440 × 900, no modo de prévia. O painel informa “Prévia com dados simulados · ponte desligada”. Nenhum widget foi desenhado para o site.
-- `overlay-widgets.png`: cópia integral da imagem local `Atualizacoes-0.2.15.png`. A origem foi confirmada no script local `.build/updates-preview.html`, que renderiza os widgets do próprio aplicativo com dados simulados.
+- `overlay-panel.png`: captura existente do painel real do FATBULL, com a indicação de prévia com dados simulados.
+- `overlay-widgets.png`: captura existente dos widgets Classificação, Pit Box, GAP de retorno e Radar, com dados de demonstração.
 
-A galeria identifica explicitamente os dados simulados. Não foram encontradas capturas de uma sessão real do iRacing nesta base. É possível substituir os arquivos por capturas feitas durante uma sessão autorizada; ajuste a descrição da galeria se elas deixarem de mostrar dados de demonstração.
+As capturas não foram alteradas. As legendas continuam identificando os dados simulados. Não são imagens de uma sessão real do iRacing.
 
-O desenho de três monitores é um **diagrama ilustrativo**, identificado como tal, e não uma tela do aplicativo.
+O seletor de monitores é uma ilustração de distribuição de widgets, explicitamente identificada como ilustrativa. Ele não configura o aplicativo instalado.
 
-O script `scripts/capture-app.mjs` permite repetir a captura se a pasta do aplicativo estiver ao lado da pasta do site. Ele é uma ferramenta local opcional; não faz parte do build ou do deploy.
+## Referência visual
 
-## Evidências de conteúdo
-
-Os recursos e atalhos foram confrontados com `fatbull-overlay/LEIA-ME.md`, a interface local e a configuração de publicação do Electron. Não foi necessário inventar um repositório: `build.publish` indica `ademirrodrigues46-lang/fatbull-overlay-releases`.
-
-A consulta pública confirmou a release v0.2.15 com o asset `FATBULL-Overlay-0.2.15-Windows-x64.exe`, de 131804388 bytes, publicado em 21/11/2026. Essa versão não foi fixada no código de produção. As notas da release informam que a validação em sessões reais do iRacing segue pendente; o site não afirma que essa validação foi realizada.
-
+[OriginKit](https://www.originkit.dev/) foi consultado como referência de superfícies escuras, cartões, profundidade e luz ambiente; também foi observado o efeito [Ribbon Glow](https://www.originkit.dev/components/ribbon-glow). Nenhum código, imagem ou componente do OriginKit foi copiado para esta entrega. Os efeitos decorativos são CSS e SVG próprios do site, sem novas dependências.

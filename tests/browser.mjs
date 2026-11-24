@@ -74,6 +74,17 @@ try {
   await page.getByText('Como atualizar o aplicativo?', { exact: true }).click();
   assert.equal(await page.locator('.faq details').nth(1).getAttribute('open'), '');
   check('perguntas frequentes expandem');
+  for (const count of [1, 2, 3]) {
+    await page.getByRole('button', {name: count + (count === 1 ? ' tela' : ' telas'), exact: true}).click();
+    assert.equal(await page.locator('.monitor-diagram .screen').count(), count);
+  }
+  check('seletor de setup mostra uma, duas e três telas');
+  await page.emulateMedia({reducedMotion: 'no-preference'});
+  await page.getByRole('button', {name: 'Pausar efeitos', exact: true}).click();
+  assert.equal(await page.locator('.site').getAttribute('data-motion'), 'off');
+  assert.equal(await page.locator('.ribbon-light').evaluate(el => getComputedStyle(el).animationName), 'none');
+  await page.emulateMedia({reducedMotion: 'reduce'});
+  check('controle de movimento pausa as animações e respeita movimento reduzido');
   for (const width of [320, 375, 390, 768, 1024, 1440]) await ensureNoOverflow(page, width);
   await page.goto(origin);
   await page.locator('.download-button:not([disabled])').waitFor();
@@ -142,6 +153,7 @@ try {
 
   const missingImage = await openCase(route => fulfill(route, fixture()));
   await missingImage.page.route('**/overlay-widgets.png', route => route.abort());
+  await missingImage.page.reload();
   await missingImage.page.getByRole('button', { name: 'Widgets de corrida', exact: true }).click();
   await missingImage.page.getByText('Captura indisponível.', { exact: true }).waitFor();
   await missingImage.context.close();

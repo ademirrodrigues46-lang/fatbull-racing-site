@@ -1,42 +1,34 @@
-# Verificação da entrega
-
-Concluída em 24/11/2026.
+# Verificação da atualização visual
 
 ## Build
 
-`npm run build` aprovado, incluindo a verificação de tipos TypeScript e o build Vite. Saída em `dist/`.
+`npm run build` aprovado, incluindo TypeScript e Vite. Saída pronta em `dist/`.
 
-## Integração de releases
+## Downloads
 
-`npm test`: 12 testes aprovados. Cobertura de seleção do asset real, configuração inválida, instalador ausente, arquitetura diferente, múltiplos assets, ausência de releases, repositório indisponível, limite da API, falha de rede/timeout, dados inválidos, rejeição de drafts/prereleases e validação dos URLs.
+`npm test`: 12 testes aprovados. A lógica de GitHub Releases, seleção do instalador, revalidação no clique e tratamento de erros foi preservada.
 
 ## Navegador
 
-`npm run test:browser`: 16 verificações aprovadas com Google Chrome em modo automatizado. Foram verificados galeria, imagens, logo, âncoras, FAQ, acesso por teclado, menu móvel e recuperação após falha.
+`npm run test:browser`: 18 verificações aprovadas no Google Chrome.
 
-Larguras conferidas sem rolagem horizontal: 320, 375, 390, 768, 1024 e 1440 pixels.
+- Versão, tamanho e changelog renderizados; notas não executam HTML.
+- Navegação por âncoras, galeria, imagens, logo e perguntas frequentes.
+- Seletor demonstrativo de uma, duas e três telas.
+- Botão de pausa e respeito à preferência de movimento reduzido.
+- Larguras 320, 375, 390, 768, 1024 e 1440 pixels sem rolagem horizontal.
+- Menu móvel e acesso por teclado.
+- Estados de ausência de release, limite da API, falha de rede, instalador ausente ou ambíguo.
+- Falha do histórico não impede um download válido.
+- Nova versão publicada depois da abertura é consultada no clique.
+- Recuperação por verificação manual e placeholder para captura indisponível.
 
-O teste de download simulou uma publicação ocorrida depois de abrir a página: a consulta inicial retornou uma versão e o clique obteve a seguinte, usando seu URL real retornado pela resposta de teste. Foi transferido somente um pequeno arquivo de teste, não o instalador do aplicativo.
+As respostas do GitHub nos testes de navegador são controladas para reproduzir esses estados. Nenhum instalador real foi baixado. A integração já havia sido conferida com a API real na entrega anterior; esta atualização visual não mudou essa integração.
 
-## Consulta real
+## Integridade da logo
 
-O script `scripts/verify-live.mjs` consultou a API pública e abriu o build em um navegador sem respostas simuladas. A conferência confirmou:
+PNG e SVG comparados byte a byte com os arquivos do ZIP atualizado: idênticos. Os hashes estão em `docs/ASSETS.md`.
 
-- Release Latest: v0.2.15.
-- Asset: FATBULL-Overlay-0.2.15-Windows-x64.exe.
-- Tamanho: 131804388 bytes (125,7 MB na interface).
-- Histórico: seis releases exibidas.
-- Versão, nome do arquivo e notas no site iguais aos retornados pela API.
-- Nenhum erro de execução JavaScript observado.
+## Entrega
 
-Essa versão é uma observação da data de verificação, não um valor fixo de produção. Não foi executado o instalador nem validado o aplicativo dentro do iRacing.
-
-## Logo
-
-Comparação SHA-256 entre o PNG dentro do ZIP original e o PNG entregue: idênticos.
-
-`737D38DE3BE19ED8377744B10924B2B11C248D78330326047FBD7DB3C34A5B0E`
-
-## Limites
-
-O deploy na Vercel ainda não foi realizado. Os screenshots mostram a interface real do aplicativo com dados de demonstração, conforme identificado no site. A disponibilidade de downloads depende do repositório público e da API do GitHub; o site apresenta estados explícitos de indisponibilidade.
+Não houve commit no GitHub nem publicação na Vercel nesta atualização. O usuário fará o envio. O ZIP inclui código, build, testes e instruções.
