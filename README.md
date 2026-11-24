@@ -1,6 +1,19 @@
 # FATBULL Racing — site do FATBULL OVERLAY
 
-Reformulação do projeto original `fatbull-racing-site-main.zip`, mantendo React, TypeScript, Vite, a organização por componentes, a imagem de cockpit e **o arquivo original da logo, sem alterações**. A paleta continua vermelho, marinho e dourado.
+Atualização visual feita sobre `fatbull-racing-site-main(1).zip`, enviado pelo usuário com a logo corrigida. Mantém React, TypeScript, Vite, a organização por componentes e o download automático. **PNG e SVG da logo foram preservados byte a byte.**
+
+## Visual atualizado
+
+Referência visual: [OriginKit](https://www.originkit.dev/), especialmente superfícies escuras, cartões arredondados, profundidade e luz ambiente. Os efeitos foram implementados no próprio projeto, sem copiar componentes, imagens ou código da biblioteca e sem acrescentar dependências.
+
+- Abertura centralizada com captura real do overlay.
+- Galeria com navegação lateral e estados de imagem indisponível.
+- Cartões com realce e movimento suave ao passar o mouse.
+- Seletor ilustrativo de uma, duas ou três telas.
+- Botão para pausar efeitos e suporte à preferência de movimento reduzido.
+- Menu, instalação, download e changelog redesenhados.
+
+Esta entrega não foi enviada ao GitHub nem à Vercel. O usuário fará o commit.
 
 ## Executar e conferir
 

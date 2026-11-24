@@ -1,0 +1,27 @@
+ATUALIZAÇÃO VISUAL FATBULL
+
+Use o conteúdo da pasta fatbull-racing-site-main para atualizar o mesmo repositório.
+Não envie somente o ZIP ao GitHub: o GitHub não extrai seu conteúdo para o site.
+Mantenha src, public, docs e os demais arquivos nas mesmas posições atuais.
+
+Não é necessário substituir configurações de conta, domínio ou repositório de downloads.
+A Vercel conectada à branch main fará o build após o seu commit/push.
+
+Principais arquivos alterados:
+src/App.tsx
+src/index.css
+src/components/Header.tsx
+src/components/Hero.tsx
+src/components/OverlayGallery.tsx
+src/components/Features.tsx
+src/components/Footer.tsx
+src/components/MultiMonitor.tsx (novo)
+tests/browser.mjs
+README.md
+CHANGELOG.md
+docs/ASSETS.md
+docs/VERIFICACAO.md
+
+As logos PNG e SVG são as mesmas do ZIP que você enviou.
+O código de download automático não foi alterado.
+Build e testes aprovados. Nenhuma publicação feita por esta entrega.

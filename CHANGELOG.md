@@ -1,5 +1,17 @@
 # Alterações no site
 
+## Atualização visual inspirada no OriginKit
+
+- Base: ZIP atualizado do GitHub enviado pelo usuário.
+- Logos PNG e SVG corrigidas preservadas integralmente.
+- Novo hero com iluminação ambiente, botões e vitrine do aplicativo.
+- Galeria com menu lateral, cartões com profundidade e novo acabamento das seções.
+- Seletor demonstrativo de um, dois ou três monitores.
+- Efeitos pausáveis e respeito à preferência de movimento reduzido.
+- Download e configuração do repositório mantidos.
+- Build aprovado, 12 testes de integração e 18 verificações de interface aprovados.
+- Entrega em arquivos, sem commit ou deploy automático.
+
 ## Reformulação FATBULL
 
 - Preservada a logo PNG original e a identidade vermelho, marinho e dourado.
